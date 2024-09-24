@@ -1,0 +1,524 @@
+/* Resetting some default styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    line-height: 1.2;
+}
+
+/* General Body Styles */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #efe9e8; /* Background color updated */
+}
+
+/* Heading Bar */
+.heading-bar {
+    background-color: #829cba; /* Updated color */
+    color: white;
+    padding: 2px 0;
+    text-align: right;
+}
+
+/* Icon Bar */
+.icon-bar {
+    background-color: #829cba; /* Updated color */
+    padding: 10px 0;
+}
+
+/* Menu Bar */
+.menu-bar {
+    background-color: #000; /* Updated color */
+    padding: 10px;
+}
+
+.menu-bar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+/* Marquee Section */
+.marquee-section {
+    background-color: #e4fdff; /* Background color for the marquee section */
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 60px; /* Ensures ribbon and marquee fit comfortably */
+    overflow: hidden; /* Prevents overflow of marquee text */
+}
+
+/* Base style for the ribbon */
+.ribbon {
+    font-size: 1.5rem; /* Adjust font size for better visibility */
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure the ribbon is above other elements */
+    line-height: 1.2; /* Adjust to center text within ribbon */
+}
+
+/* Marquee content styling */
+.marquee-content {
+    color: #000; /* Text color */
+    border-radius: 0.5em;
+    white-space: nowrap;
+    overflow: hidden; /* Prevents any text overflow */
+}
+
+/* Slider */
+.slider {
+    background-color: #829cba; /* Background color */
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    z-index: 1; /* Ensure z-index is above other elements */
+}
+
+.carousel-inner img {
+    max-height: 500px; /* Limit the height of the images */
+    object-fit: cover; /* Ensure the images cover the entire area */
+}
+
+
+/* Circle Container */
+.circle-container {
+    background-color: #efe9e8; /* Updated color */
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    background-color: white;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.images img {
+    height: 200px;
+    width: 300px;
+    border-radius: 50%;
+    border: 5px solid rgb(222, 219, 219);
+}
+
+.text {
+    color: #000; /* Updated color */
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* News and event */
+
+/* Right-Side Fixed Icons */
+.right-icons {
+    position: fixed;
+    top: 20%;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.icon-wrapper {
+    position: relative;
+    margin: 10px 0;
+    z-index: 1;
+}
+
+.icon {
+    font-size: 24px;
+    color: #fff; /* Icon color is white */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+/* Colors for individual icons */
+.facebook {
+    background-color: #3b5998; /* Facebook blue */
+}
+
+.twitter {
+    background-color: #1da1f2; /* Twitter blue */
+}
+
+.instagram {
+    background-color: #e4405f; /* Instagram red */
+}
+
+.linkedin {
+    background-color: #0077b5; /* LinkedIn blue */
+}
+
+/* Text styling and positioning */
+.icon-wrapper .text {
+    position: absolute;
+    top: 50%;
+    right: 50px; /* Position text to the right of the icon */
+    transform: translateY(-50%);
+    background-color: #333; /* Default background color for text */
+    color: #fff; /* Text color is white */
+    padding: 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0; /* Set opacity to 0 initially */
+    transition: opacity 0.3s, transform 0.3s, background-color 0.3s;
+    z-index: 10; /* Ensure text appears above other elements */
+}
+
+/* Hover styles for each icon */
+.facebook:hover .text,
+.twitter:hover .text,
+.instagram:hover .text,
+.linkedin:hover .text {
+    opacity: 1; /* Show text on hover */
+    transform: translateY(-50%) scale(1.1); /* Slightly scale up on hover */
+}
+
+/* Specific background color for text matching icon color */
+.facebook:hover .text {
+    background-color: #3b5998; /* Same color as Facebook icon */
+}
+
+.twitter:hover .text {
+    background-color: #1da1f2; /* Same color as Twitter icon */
+}
+
+.instagram:hover .text {
+    background-color: #e4405f; /* Same color as Instagram icon */
+}
+
+.linkedin:hover .text {
+    background-color: #0077b5; /* Same color as LinkedIn icon */
+}
+/* Developer css */
+
+.basis-member.staff {
+    padding: 4rem 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+.basis-member.staff .member-box {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.basis-member.staff .member-box .card-body {
+    position: relative;
+    height: 150px
+}
+.basis-member.staff .member-box .shape {
+    width: 200px;
+    height: 200px;
+    background: lightblue;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    right: -100px;
+    transform: rotate(45deg);
+}
+
+.basis-member.staff .member-box .card-img-top {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-top-left-radius: 0;
+    border-bottom: 5px solid lightblue;
+}
+
+.basis-member.staff .member-box .member-title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+.member-box {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.member-box:hover {
+    transform: scale(1.05);
+}
+
+.icon-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: lightblue;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.member-box:hover .icon-bar {
+    opacity: 1;
+}
+
+.icon-bar a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.icon-bar a:hover {
+    color: #051c59;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+/*Gallery*/
+.gallery {
+    --s: 300px; /* control the size */
+    --g: 10px;  /* control the gap */
+    --f: 1;   /* control the scale factor */
+    
+    display: grid;
+    gap: var(--g);
+    width: calc(3*var(--s) + 2*var(--g));
+    aspect-ratio: 1;
+    grid-template-columns: repeat(3,auto);
+  }
+  
+  .gallery > img {
+    width: 0;
+    height: 0;
+    min-height: 100%;
+    min-width: 150%;
+    object-fit: cover;
+    cursor: pointer;
+    filter: grayscale(80%);
+    transition: .35s linear;
+  }
+  
+  .gallery img:hover{
+    filter: grayscale(0);
+    width:  calc(var(--s)*var(--f));
+    height: calc(var(--s)*var(--f));
+  }
+  
+  
+/* Footer */
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    background-color: #829cba; /* Updated color */
+    padding: 60px 10%;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer-col {
+    width: 25%;
+}
+
+.footer-col h4 {
+    position: relative;
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 22px;
+    color: #efe9e8; /* Updated color */
+    text-transform: capitalize;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    background-color: #000; /* Updated color */
+    height: 2px;
+    width: 40px;
+}
+
+ul li:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+ul li a {
+    display: block;
+    font-size: 19px;
+    text-transform: capitalize;
+    color: #efe9e8; /* Updated color */
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+ul li a:hover {
+    color: #efe9e8; /* Updated color */
+    padding-left: 2px;
+}
+
+.links a {
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    color: #efe9e8; /* Updated color */
+    background-color: rgba(40, 130, 214, 0.8); /* Updated color */
+    margin: 0 8px 8px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover {
+    color: #000; /* Updated color */
+    background-color: white;
+}
+
+/* Responsive Design */
+@media(max-width: 740px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .footer-col h4::before {
+        all: unset;
+    }
+}
+
+@media(max-width: 555px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    line-height: 1.2;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(212, 208, 208);
+}
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    background-color: #30b4f1;
+    padding: 60px 10%;
+}
+
+ul{
+    list-style: none;
+}
+
+.footer-col{
+    width: 25%;
+}
+
+.footer-col h4{
+    position: relative;
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 22px;
+    color: #fefdfb;
+    text-transform: capitalize;
+}
+
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    background-color: #02110f;
+    height: 2px;
+    width: 40px;
+}
+
+ul li:not(:last-child){
+    margin-bottom: 8px;
+}
+
+ul li a{
+    display: block;
+    font-size: 19px;
+    text-transform: capitalize;
+    color: white;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+ul li a:hover{
+    color: white;
+    padding-left: 2px;
+}
+
+.links a{
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    color: white;
+    background-color: rgba(40, 130, 214, 0.8);
+    margin: 0 8px 8px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover{
+    color: #cdced2;
+    background-color: white;
+}
+
+@media(max-width: 740px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .footer-col h4::before{
+        all: unset;
+    }
+}
+
+@media(max-width: 555px){
+    .footer-col{
+        width: 100%;
+    }
+}
+

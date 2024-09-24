@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip Card with Dynamic Data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Option 1: Include in HTML -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <style>
+        /* Flip card container */
+        .flip-card {
+            perspective: 1000px;
+            margin-bottom: 30px;
+            height: 300px;
+        }
+
+        /* Card flip effect */
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner,
+        .flip-card:active .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Card front and back styles */
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 1px solid #ccc;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card-front {
+            background-color: #fff;
+        }
+
+        .flip-card-back {
+            background-color: #333;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flip-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .flip-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .social-icons a:hover {
+            color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row" id="card-container">
+            <!-- Dynamic Teacher Cards will be inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Dynamic data for teachers
+        const teachers = [
+    {
+        name: 'Dr. Kishor Patil',
+        role: 'Principal',
+        email: 'kishorpatil24@gmail.com',
+        phone: '9165987428',
+        img: 'https://cdn1.iconfinder.com/data/icons/user-pictures/101/malecostume-512.png',
+        description: 'Experienced in leading academic institutions with a focus on excellence.',
+        social: {
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com',
+            facebook: 'https://facebook.com'
+        }
+    },
+    {
+        name: 'Shri Dipak Mali',
+        role: 'Head of Department',
+        email: 'dipak.mali@example.com',
+        phone: '9876543210',
+        img: 'https://cdn2.iconfinder.com/data/icons/avatar-2/512/Fred_man-512.png',
+        description: 'Expert in computer science and technology with over 15 years of experience.',
+        social: {
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com',
+            facebook: 'https://facebook.com'
+        }
+    },
+    {
+        name: 'Ms. Priya Sharma',
+        role: 'Lecturer',
+        email: 'priya.sharma@example.com',
+        phone: '9988776655',
+        img: 'https://cdn2.iconfinder.com/data/icons/avatar-2/512/Christina_Woman-512.png',
+        description: 'Enthusiastic lecturer with a passion for student success and modern teaching methods.',
+        social: {
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com',
+            facebook: 'https://facebook.com'
+        }
+    },
+    {
+        name: 'Dr. Ravi Kulkarni',
+        role: 'Professor',
+        email: 'ravi.kulkarni@example.com',
+        phone: '8765432198',
+        img: 'https://cdn2.iconfinder.com/data/icons/avatar-2/512/Worker-512.png',
+        description: 'Specializes in research on artificial intelligence and machine learning.',
+        social: {
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com',
+            facebook: 'https://facebook.com'
+        }
+    },
+    {
+        name: 'Ms. Anjali Deshmukh',
+        role: 'Assistant Professor',
+        email: 'anjali.deshmukh@example.com',
+        phone: '9871234567',
+        img: 'https://cdn1.iconfinder.com/data/icons/user-pictures/100/female1-512.png',
+        description: 'Dedicated to student mentorship and the application of cutting-edge research in teaching.',
+        social: {
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com',
+            facebook: 'https://facebook.com'
+        }
+    },
+    {
+        name: 'Mr. Rajesh Tiwari',
+        role: 'Senior Lecturer',
+        email: 'rajesh.tiwari@example.com',
+        phone: '9987223344',
+        img: 'https://cdn2.iconfinder.com/data/icons/avatar-2/512/assistant-512.png',
+        description: 'Over 20 years of experience in teaching advanced mathematics and statistics.',
+        social: {
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com',
+            facebook: 'https://facebook.com'
+        }
+    },
+    {
+        name: 'Ms. Meena Gupta',
+        role: 'Research Scholar',
+        email: 'meena.gupta@example.com',
+        phone: '7766541232',
+        img: 'https://cdn2.iconfinder.com/data/icons/avatar-2/512/lalman-512.png',
+        description: 'Focused on developing sustainable technologies and has published multiple papers in the field.',
+        social: {
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com',
+            facebook: 'https://facebook.com'
+        }
+    },
+    {
+        name: 'Dr. Suresh Desai',
+        role: 'Visiting Faculty',
+        email: 'suresh.desai@example.com',
+        phone: '8899776655',
+        img: 'https://cdn2.iconfinder.com/data/icons/avatar-2/512/cleric-512.png',
+        description: 'Brings real-world industrial experience to the classroom, specializing in engineering and physics.',
+        social: {
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com',
+            facebook: 'https://facebook.com'
+        }
+    },
+    {
+        name: 'Mr. Amit Nair',
+        role: 'Lab Assistant',
+        email: 'amit.nair@example.com',
+        phone: '9988221100',
+        img: 'https://cdn2.iconfinder.com/data/icons/avatar-2/512/Keith_Male-512.png',
+        description: 'Oversees laboratory sessions, ensuring smooth operations and assisting with technical issues.',
+        social: {
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com',
+            facebook: 'https://facebook.com'
+        }
+    },
+    {
+        name: 'Ms. Rina Kapoor',
+        role: 'Administrative Officer',
+        email: 'rina.kapoor@example.com',
+        phone: '7776554433',
+        img: 'https://cdn2.iconfinder.com/data/icons/avatar-2/512/kid-512.png',
+        description: 'Handles all academic administrative processes and student record management.',
+        social: {
+            linkedin: 'https://linkedin.com',
+            twitter: 'https://twitter.com',
+            facebook: 'https://facebook.com'
+        }
+    }
+];
+
+        // Function to create and insert teacher cards dynamically
+        const cardContainer = document.getElementById('card-container');
+
+        teachers.forEach(teacher => {
+            const card = document.createElement('div');
+            card.className = 'col-md-4';
+
+            card.innerHTML = `
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <!-- Front of the card -->
+                    <div class="flip-card-front">
+                        <img src="${teacher.img}" alt="${teacher.name}">
+                        <h3>${teacher.name}</h3>
+                        <p>${teacher.role}</p>
+                        <p>Email: ${teacher.email}</p>
+                        <p>Phone: ${teacher.phone}</p>
+                    </div>
+                    <!-- Back of the card -->
+                    <div class="flip-card-back">
+                        <h3>${teacher.name}</h3>
+                        <p>${teacher.description}</p>
+                        <div class="social-icons">
+                            <a href="${teacher.social.linkedin}" target="_blank"><i class="bi bi-linkedin"></i></a>
+                            <a href="${teacher.social.twitter}" target="_blank"><i class="bi bi-twitter"></i></a>
+                            <a href="${teacher.social.facebook}" target="_blank"><i class="bi bi-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+            cardContainer.appendChild(card);
+        });
+    </script>
+
+    <!-- Font Awesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>
