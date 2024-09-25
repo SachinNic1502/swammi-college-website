@@ -11,6 +11,73 @@
 
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarAcademics" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Academics
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarAcademics">
+                  <li><a class="dropdown-item" href="#">Programs</a></li>
+                  <li><a class="dropdown-item" href="department.html">Departments</a></li>
+                  <li><a class="dropdown-item" href="#">Faculty</a></li>
+                  <li><a class="dropdown-item" href="#">Academic Calendar</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Admissions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Courses</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarStudentLife" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Student Life
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarStudentLife">
+                  <li><a class="dropdown-item" href="#">Clubs & Societies</a></li>
+                  <li><a class="dropdown-item" href="#">Sports & Recreation</a></li>
+                  <li><a class="dropdown-item" href="#">Campus Facilities</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Research</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Library</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Alumni</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">News & Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+              <li class="nav-item"></li>
+                <a class="nav-link" href="developer.html">Our Developer Team</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
     <div class="container">
         <h3 class="my-4">Meet our best developer teams</h3>
         <div class="card shadow-lg">
@@ -198,6 +265,7 @@ members.forEach(member => {
             document.getElementById("member-cards").innerHTML += cardHTML;
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-2g93NDB5PKe9+zAqGHP2olH7AR03lTcA9g9k6znHDZr6RkQbQYdJtMT5xNf63pTcA" crossorigin="anonymous"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
